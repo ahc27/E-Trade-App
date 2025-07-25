@@ -1,0 +1,67 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio
+.vs/
+.vscode/
+*.sln.ide
+
+# ASP.NET Core
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.json
+secrets.json
+
+# Rider
+.idea/
+*.sln.iml
+
+# Logs
+*.log
+Logs/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Docker
+*.pid
+*.tar
+docker-compose.override.yml
+
+# Paketler
+*.nupkg
+*.snupkg
+packages/
+
+# Publish outputs
+wwwroot/
+publish/
+dist/
+
+# Test ve Coverage
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+*.testresults
+
+# NPM/Yarn (eðer frontend varsa)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Temporary
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Build cache
+artifacts/
+.cache/

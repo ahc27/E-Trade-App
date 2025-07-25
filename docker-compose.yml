@@ -1,0 +1,73 @@
+version: '3.8'
+services:
+  category-api:
+    build:
+      context: ./CategoryMicroservice
+    container_name: category_api
+    ports:
+      - "5001:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Username=postgres;Password=Bulut2021;Database=WebApplication2
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  user-api:
+    build:
+      context: ./UserMicroservice
+      dockerfile: Dockerfile
+    container_name: user_api  
+    ports:
+      - "5002:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Username=postgres;Password=Bulut2021;Database=WebApplication2
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  apigateway:
+    build:
+      context: ./ApiGateway
+    container_name: apigateway
+    depends_on:
+      - user-api
+      - category-api
+    ports:
+      - "5017:8080"   
+
+  postgres:
+    image: postgres:16
+    container_name: my_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Bulut2021
+      POSTGRES_DB: WebApplication2
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_container
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+
+volumes:
+  pgdata:
+  
