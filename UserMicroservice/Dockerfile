@@ -2,7 +2,6 @@
 
 # Bu aşama, VS'den hızlı modda çalıştırıldığında kullanılır (Hata ayıklama yapılandırması için varsayılan olarak ayarlıdır)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
@@ -12,9 +11,10 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["UserMicroservice.csproj", "./"]
-RUN dotnet restore "./UserMicroservice.csproj"
+COPY ["UserMicroservice/UserMicroservice.csproj", "UserMicroservice/"]
+RUN dotnet restore "./UserMicroservice/UserMicroservice.csproj"
 COPY . .
+WORKDIR "/src/UserMicroservice"
 RUN dotnet build "./UserMicroservice.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # Bu aşama, son aşamaya kopyalanacak hizmet projesini yayımlamak için kullanılır
@@ -24,6 +24,7 @@ RUN dotnet publish "./UserMicroservice.csproj" -c $BUILD_CONFIGURATION -o /app/p
 
 # Bu aşama üretimde veya VS'den normal modda çalıştırıldığında kullanılır (Hata Ayıklama yapılandırması kullanılmazken varsayılan olarak ayarlıdır)
 FROM base AS final
+RUN apt update && apt install -y curl
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "UserMicroservice.dll"]

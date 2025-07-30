@@ -7,13 +7,9 @@ namespace UserMicroservice.Validators
     {
         public CreateUserValidator()
         {
-            RuleFor(x => x.firstName)
-                .NotNull().WithMessage("First name cannot be null.")
+            RuleFor(x => x.email)
+                .NotNull().WithMessage("email cannot be null.")
                 .MinimumLength(2).WithMessage("First name should be at least 2 characters.");
-
-            RuleFor(x => x.last_name)
-                .NotNull().WithMessage("Last name cannot be null.")
-                .MinimumLength(2).WithMessage("Last name should be at least 2 characters.");
 
             RuleFor(x => x.password)
                 .NotNull().WithMessage("Password cannot be null.")

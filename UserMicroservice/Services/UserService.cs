@@ -32,6 +32,7 @@ namespace UserMicroservice.Services
 
         public async Task<User> AddAsync(CreateUserdto userDto)
         {
+            userDto.password = BCrypt.Net.BCrypt.HashPassword(userDto.password);
             var userEntity = _mapper.Map<User>(userDto);
             var addedUser = await _userRepository.Add(userEntity);
             return addedUser;
@@ -45,6 +46,7 @@ namespace UserMicroservice.Services
             {
                 return false;
             }
+            userDto.password = BCrypt.Net.BCrypt.HashPassword(userDto.password);
             _mapper.Map(userDto, existingUser); // direkt olarak mevcut entity'ye map'le
 
             return await _userRepository.Update(existingUser);
@@ -55,6 +57,8 @@ namespace UserMicroservice.Services
         {
         return await _userRepository.Delete(id);
         }
-            
+
+ 
+
     }
 }

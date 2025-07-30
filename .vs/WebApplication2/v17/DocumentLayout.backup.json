@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ali\\source\\repos\\WebApplication2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\apigateway\\service\\gatewayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|solutionrelative:apigateway\\service\\gatewayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\apigateway\\service\\dto\\serviceurls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|solutionrelative:apigateway\\service\\dto\\serviceurls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\apigateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|solutionrelative:apigateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\apigateway\\service\\igatewayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|solutionrelative:apigateway\\service\\igatewayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\apigateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|solutionrelative:apigateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\apigateway\\presentation\\controllers\\gatewaycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|solutionrelative:apigateway\\presentation\\controllers\\gatewaycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ServiceURLs.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Service\\Dto\\ServiceURLs.cs",
+              "RelativeDocumentMoniker": "APIGateway\\Service\\Dto\\ServiceURLs.cs",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Service\\Dto\\ServiceURLs.cs",
+              "RelativeToolTip": "APIGateway\\Service\\Dto\\ServiceURLs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T11:16:04.179Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\appsettings.json",
+              "RelativeDocumentMoniker": "APIGateway\\appsettings.json",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\appsettings.json",
+              "RelativeToolTip": "APIGateway\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-30T11:08:03.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IGatewayService.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Service\\IGatewayService.cs",
+              "RelativeDocumentMoniker": "APIGateway\\Service\\IGatewayService.cs",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Service\\IGatewayService.cs",
+              "RelativeToolTip": "APIGateway\\Service\\IGatewayService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T10:47:44.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GatewayService.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Service\\GatewayService.cs",
+              "RelativeDocumentMoniker": "APIGateway\\Service\\GatewayService.cs",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Service\\GatewayService.cs",
+              "RelativeToolTip": "APIGateway\\Service\\GatewayService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T10:46:31.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Program.cs",
+              "RelativeDocumentMoniker": "APIGateway\\Program.cs",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Program.cs",
+              "RelativeToolTip": "APIGateway\\Program.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T09:39:16.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GatewayController.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Presentation\\Controllers\\GatewayController.cs",
+              "RelativeDocumentMoniker": "APIGateway\\Presentation\\Controllers\\GatewayController.cs",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Presentation\\Controllers\\GatewayController.cs",
+              "RelativeToolTip": "APIGateway\\Presentation\\Controllers\\GatewayController.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAIwFUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T12:01:51.074Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

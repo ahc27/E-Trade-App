@@ -5,6 +5,7 @@ using UserMicroservice.Data;
 
 namespace UserMicroservice.Data.Repositories
 {
+
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly ApplicationDbContext _context;
@@ -16,9 +17,9 @@ namespace UserMicroservice.Data.Repositories
             _dbSet = context.Set<T>();
         }
 
-        public virtual async  Task<IEnumerable<T>> GetAll()
+        public virtual async Task<IEnumerable<T>> GetAll()
         {
-            return await _dbSet.ToListAsync(); 
+            return await _dbSet.ToListAsync();
         }
 
 
@@ -53,5 +54,10 @@ namespace UserMicroservice.Data.Repositories
             return true;
         }
 
+        public virtual async Task<T> getByEmail(string email)
+        {
+            return await _dbSet.FirstOrDefaultAsync(e => EF.Property<string>(e, "email") == email);
+
+        }
     }
 }

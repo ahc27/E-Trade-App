@@ -1,6 +1,7 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using UserMicroservice.Data;
 using UserMicroservice.Data.Repositories;
 using UserMicroservice.Infrastructures.Mapping;
@@ -43,7 +44,7 @@ try
     using (var scope = app.Services.CreateScope())
     {
         var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-        await db.Database.MigrateAsync();
+        db.Database.Migrate(); // Container açýlýrken migration uygulanacak
     }
 }
 catch (Exception ex)

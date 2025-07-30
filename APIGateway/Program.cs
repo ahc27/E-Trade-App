@@ -1,39 +1,89 @@
+using APIGateway.Service;
+using APIGateway.Service.Dto;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using System.Text;
 
-internal class Program
-{
-    private static async Task Main(string[] args)
+var builder = WebApplication.CreateBuilder(args);
+
+//var config = new ConfigurationBuilder()
+//    .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true)
+//    .Build();
+
+// JWT Config
+var jwtConfig = builder.Configuration.GetSection("JwtConfig");
+var issuer = jwtConfig["Issuer"];
+var audience = jwtConfig["Audience"];
+var key = jwtConfig["Key"];
+
+
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", options =>
     {
-        var builder = WebApplication.CreateBuilder(args);
-
-        builder.Configuration.AddJsonFile("Ocelot.json", optional: false, reloadOnChange: true);
-        builder.Services.AddOcelot();
-
-        // Add services to the container.
-
-        builder.Services.AddControllers();
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
-
-        var app = builder.Build();
-
-        // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
+        options.RequireHttpsMetadata = false;
+        options.SaveToken = true;
+        options.TokenValidationParameters = new TokenValidationParameters
         {
-            app.UseSwagger();
-            app.UseSwaggerUI();
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = issuer,
+            ValidAudience = audience,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key))
+        };
+    });
+
+builder.Services.AddAuthorization();
+builder.Services.AddOcelot();
+builder.Services.AddControllers();
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<IGatewayService, GatewayService>();
+builder.Services.Configure<ServiceUrls>(builder.Configuration.GetSection("ServiceUrls"));
+
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Gateway", Version = "v1" });
+
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "JWT Authorization header using the Bearer scheme. Enter 'Bearer' [space] and then your token.",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
         }
+    });
+});
 
-        app.UseHttpsRedirection();
+var app = builder.Build();
 
-        app.UseAuthorization();
+app.UseSwagger();
+app.UseSwaggerUI();
 
-        app.MapControllers();
+app.UseAuthentication();
+app.UseAuthorization();
 
-        await app.UseOcelot();
+app.MapControllers();
 
-        app.Run();
-    }
-}
+// await app.UseOcelot();
+
+app.Run();

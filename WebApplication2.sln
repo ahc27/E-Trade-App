@@ -14,9 +14,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMicroservice", "UserMic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIGateway", "APIGateway\APIGateway.csproj", "{386580AB-03D6-4D57-814D-7222E0769F74}"
 	ProjectSection(ProjectDependencies) = postProject
+		{58F3A4D6-30A1-4628-A79F-2E8C4F4CB348} = {58F3A4D6-30A1-4628-A79F-2E8C4F4CB348}
 		{E42D9211-0DD4-F4F1-452D-EEB649E43CBB} = {E42D9211-0DD4-F4F1-452D-EEB649E43CBB}
 		{F74E38E8-81EF-4E69-A278-0CBEC088B064} = {F74E38E8-81EF-4E69-A278-0CBEC088B064}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthAPI", "AuthAPI\AuthAPI.csproj", "{58F3A4D6-30A1-4628-A79F-2E8C4F4CB348}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +39,10 @@ Global
 		{386580AB-03D6-4D57-814D-7222E0769F74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{386580AB-03D6-4D57-814D-7222E0769F74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{386580AB-03D6-4D57-814D-7222E0769F74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58F3A4D6-30A1-4628-A79F-2E8C4F4CB348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F3A4D6-30A1-4628-A79F-2E8C4F4CB348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F3A4D6-30A1-4628-A79F-2E8C4F4CB348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F3A4D6-30A1-4628-A79F-2E8C4F4CB348}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

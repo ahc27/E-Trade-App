@@ -12,9 +12,10 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["CategoryMicroservice.csproj", "./"]
-RUN dotnet restore "./CategoryMicroservice.csproj"
+COPY ["CategoryMicroservice/CategoryMicroservice.csproj", "CategoryMicroservice/"]
+RUN dotnet restore "./CategoryMicroservice/CategoryMicroservice.csproj"
 COPY . .
+WORKDIR "/src/CategoryMicroservice"
 RUN dotnet build "./CategoryMicroservice.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # Bu aşama, son aşamaya kopyalanacak hizmet projesini yayımlamak için kullanılır

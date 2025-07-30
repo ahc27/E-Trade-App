@@ -12,7 +12,7 @@ namespace UserMicroservice.Validators
                     .NotEmpty().WithMessage("First name  cannot be empty.")
                     .MinimumLength(2).WithMessage("First name should be at least 2 characters.");
 
-            RuleFor(x => x.last_name)
+            RuleFor(x => x.lastName)
                     .NotNull().WithMessage("Last name cannot be null.")
                     .NotEmpty().WithMessage("Last name cannot be empty.")
                     .MinimumLength(2).WithMessage("Last name should be at least 2 characters.");

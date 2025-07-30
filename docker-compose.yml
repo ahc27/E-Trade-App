@@ -2,7 +2,8 @@ version: '3.8'
 services:
   category-api:
     build:
-      context: ./CategoryMicroservice
+      context: .
+      dockerfile: CategoryMicroservice/Dockerfile
     container_name: category_api
     ports:
       - "5001:8080"
@@ -13,11 +14,13 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+    networks:
+      - app-network
 
   user-api:
     build:
-      context: ./UserMicroservice
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: UserMicroservice/Dockerfile
     container_name: user_api  
     ports:
       - "5002:8080"
@@ -28,16 +31,39 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+    networks:
+      - app-network
 
+  auth-api:
+    build:
+      context: .
+      dockerfile: AuthAPI/Dockerfile
+    container_name: auth_api 
+    ports:
+      - "5000:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Username=postgres;Password=Bulut2021;Database=WebApplication2
+    depends_on:
+      - user-api
+    networks:
+      - app-network
+
+      
   apigateway:
     build:
-      context: ./ApiGateway
+      context: .
+      dockerfile: APIGateway/Dockerfile
     container_name: apigateway
     depends_on:
       - user-api
       - category-api
+      - auth-api 
     ports:
       - "5017:8080"   
+    networks:
+      - app-network
 
   postgres:
     image: postgres:16
@@ -56,6 +82,9 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    networks:
+      - app-network
+
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin_container
@@ -67,7 +96,12 @@ services:
       - "5050:80"
     depends_on:
       - postgres
+    networks:
+      - app-network 
 
 volumes:
   pgdata:
-  
+
+networks:
+  app-network:
+    driver: bridge  

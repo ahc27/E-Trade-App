@@ -1,0 +1,25 @@
+﻿using AuthAPI.Data;
+using System.Net.Http.Json;
+
+namespace AuthAPI.Service
+{
+    public class AuthService : IAuthService
+    {
+        private readonly HttpClient _httpClient;
+
+        public AuthService(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
+
+        // IAuthService arayüzüne uygun şekilde metot adı ve dönüş tipi düzeltildi
+        public async Task<UserAuth?> GetByEmailAsync(string email)
+        {
+            // UserMicroservice'deki endpoint'e uygun şekilde istek atılıyor
+            var response = await _httpClient.GetAsync($"http://localhost:5003/api/users/{email}");
+            if (!response.IsSuccessStatusCode)
+                return null;
+            return await response.Content.ReadFromJsonAsync<UserAuth>();
+        }
+    }
+}

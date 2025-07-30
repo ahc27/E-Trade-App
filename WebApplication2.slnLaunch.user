@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "Yeni Profil",
+    "Projects": [
+      {
+        "Path": "CategoryMicroservice\\CategoryMicroservice.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "UserMicroservice\\UserMicroservice.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "APIGateway\\APIGateway.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

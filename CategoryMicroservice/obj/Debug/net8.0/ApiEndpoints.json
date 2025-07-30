@@ -1,0 +1,81 @@
+[
+  {
+    "ContainingType": "CategoryMicroservice.Presentation.Controllers.CategorysController",
+    "Method": "GetAll",
+    "RelativePath": "api/Categorys",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CategoryMicroservice.Presentation.Controllers.CategorysController",
+    "Method": "Add",
+    "RelativePath": "api/Categorys",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "CategoryMicroservice.Service.Dtos.CreateCategoryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CategoryMicroservice.Presentation.Controllers.CategorysController",
+    "Method": "Update",
+    "RelativePath": "api/Categorys",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "category",
+        "Type": "CategoryMicroservice.Service.Dtos.UpdateCategoryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CategoryMicroservice.Presentation.Controllers.CategorysController",
+    "Method": "GetById",
+    "RelativePath": "api/Categorys/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CategoryMicroservice.Presentation.Controllers.CategorysController",
+    "Method": "Delete",
+    "RelativePath": "api/Categorys/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
