@@ -1,46 +1,53 @@
-﻿using AuthAPI.Service.Dtos;
-using System.IdentityModel.Tokens.Jwt;
-using UserMicroservice.Data;
-using UserMicroservice.Data.Repositories;
+﻿using AutoMapper;
+using classLib;
+using classLib.LogDtos;
 
 namespace AuthAPI.Service
 {
     public class AuthService : IAuthService
     {
-        private readonly UserRepository _userRepository;
+        private readonly HttpClient _httpClient;
         private readonly IJWTService _jwtService;
+        private readonly IMapper _mapper;
+        private readonly RabbitMqProducer _rabbitMqProducer;
 
-        public AuthService(UserRepository userRepository, IJWTService jwtService)
+        public AuthService(IJWTService jwtService, IMapper mapper, IHttpClientFactory httpClient, RabbitMqProducer rabbitMqProducer)
         {
-            _userRepository = userRepository;
-            _jwtService = jwtService; // Assuming JWTService is implemented correctly
-
+            _mapper = mapper;
+            _jwtService = jwtService; 
+            _httpClient = httpClient.CreateClient();
+            _rabbitMqProducer = rabbitMqProducer;
         }
 
-        public async Task<User> getByEmailAsync(string email)
+        public async Task<string?> Login(UserAuth request)
         {
-            return await _userRepository.GetByEmail(email);
-        }
-
-        public async Task<string?> login(UserAuth request)
-        {
-            var user = await _userRepository.getByEmail(request.email);
-
+            var user = await GetUserByEmail(request.email);
             if (user == null) return null;
 
             bool passwordMatch = BCrypt.Net.BCrypt.Verify(request.password, user.password);
-
             if (!passwordMatch) return null;
 
-            
-            if(!await _jwtService.isTokenValid(user.refreshToken))
+            if (!await _jwtService.isTokenValid(user.refreshToken))
             {
                 user.refreshToken = _jwtService.GenerateRefreshToken(user);
-                await _userRepository.Update(user);
+
+                var updateRequest = new HttpRequestMessage(HttpMethod.Put, "http://user_api:8080/api/Users/refreshtoken")
+                {
+                    Content = JsonContent.Create(user)
+                };
+
+                var updateResponse = await _httpClient.SendAsync(updateRequest);
+
+                if (!updateResponse.IsSuccessStatusCode) return null;
             }
 
-
             var token = _jwtService.GenerateToken(user);
+            if (string.IsNullOrEmpty(token))
+            {
+                await LogAuth(user.Id.ToString(), false, "Login", "Token generation failed",new InvalidOperationException("Token cannot be  generated") );
+                return null;
+            }
+            await LogAuth(user.Id.ToString(), true, "Login", "User logged in successfully", null);
             return token;
         }
 
@@ -54,10 +61,8 @@ namespace AuthAPI.Service
 
               if (string.IsNullOrEmpty(email))
                   throw new Exception(); */
-
-            var user = await _userRepository.GetByEmail(request.email);
-            if (user == null)
-                return null;
+            var user = await GetUserByEmail(request.email);
+            if (user == null) return null;
 
             bool passwordMatch = BCrypt.Net.BCrypt.Verify(request.password, user.password);
             if (!passwordMatch)
@@ -76,7 +81,47 @@ namespace AuthAPI.Service
             }
         }
 
+        public async Task<bool> LogAuth(string? entityId, bool success, string action, string message,Exception? exception)
+        {
+            try
+            {
+                
+                var userLog = new Log
+                {
+                    IsSuccess = success,
+                    Action = action,
+                    Message = message,
+                    Timestamp = DateTime.UtcNow,
+                    EntityId = entityId,
+                    ServiceName = "AuthAPI",
+                    Level = success ? "Information" : "Error",
+                    Exception = exception
+                };
+
+                await _rabbitMqProducer.SendLogAsync(userLog);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Logging failed: {ex.Message}");
+                return false;
+            }
+        }
+
+
+        public async Task<AuthorizationDto> GetUserByEmail(string email)
+        {
+            //From query ile yapmak daha esnek olacaktır
+            var response = await _httpClient.GetAsync($"http://user_api:8080/api/Users/email/{email}");
+            if (!response.IsSuccessStatusCode) return null;
+            if (response.Content == null) return null;
+            var user = await response.Content.ReadFromJsonAsync<AuthorizationDto>();
+
+            return user;
+        }
+
 
 
     }
 }
+

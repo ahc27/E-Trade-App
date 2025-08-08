@@ -1,11 +1,11 @@
-﻿using UserMicroservice.Data;
+﻿using classLib;
 
 namespace AuthAPI.Service
 {
     public interface IJWTService
     {
-        string GenerateToken(User user);
-        string GenerateRefreshToken(User user);
+        string GenerateToken(AuthorizationDto user);
+        string GenerateRefreshToken(AuthorizationDto user);
         Task<bool> isTokenValid(string token);
     }
 }

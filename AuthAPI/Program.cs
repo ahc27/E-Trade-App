@@ -1,25 +1,25 @@
+using classLib;
 using AuthAPI.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using UserMicroservice.Data;
-using UserMicroservice.Data.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
-builder.Configuration.AddJsonFile("auth_appsettings.json", optional: false, reloadOnChange: true)
-                     .AddEnvironmentVariables();
 
 var jwtConfig = builder.Configuration.GetSection("JwtConfig");
 var issuer = jwtConfig["Issuer"];
 var audience = jwtConfig["Audience"];
 var key = jwtConfig["Key"];
 
-// Services
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddHttpClient(); 
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication();
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
+//builder.Services.Configure<ApiBehaviorOptions>(options =>
+//{
+//    options.SuppressModelStateInvalidFilter = true;
+//});
 
 builder.Services.AddAuthentication(options =>
 {
@@ -38,11 +38,39 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = audience,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key))
     };
+    options.Events = new JwtBearerEvents
+    {
+        OnMessageReceived = context =>
+        {
+            // Önce Authorization header'dan token'ý kontrol et
+            var authHeader = context.Request.Headers["Authorization"].FirstOrDefault();
+            if (!string.IsNullOrEmpty(authHeader) && authHeader.StartsWith("Bearer "))
+            {
+                context.Token = authHeader.Substring("Bearer ".Length).Trim();
+            }
+            // Eðer Authorization header'da token yoksa cookie'den al
+            else
+            {
+                var accessToken = context.Request.Cookies["access_token"];
+                if (!string.IsNullOrEmpty(accessToken))
+                {
+                    context.Token = accessToken;
+                }
+            }
+            return Task.CompletedTask;
+        },
+        OnAuthenticationFailed = context =>
+        {
+            Console.WriteLine($"Authentication failed: {context.Exception.Message}");
+            return Task.CompletedTask;
+        }
+    };
 });
 
 builder.Services.AddScoped<IJWTService, JWTService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddScoped<UserRepository>();
+builder.Services.AddSingleton<RabbitMqConnectionManager>();
+builder.Services.AddSingleton<RabbitMqProducer>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

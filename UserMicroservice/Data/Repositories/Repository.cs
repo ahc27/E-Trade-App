@@ -1,7 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using UserMicroservice.Data;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace UserMicroservice.Data.Repositories
 {
@@ -35,10 +32,17 @@ namespace UserMicroservice.Data.Repositories
             await _context.SaveChangesAsync();
             return entity;
         }
-        public virtual async Task<bool> Update(T entity)
+        public virtual async Task<T> Update(T entity)
+        {
+            if (entity == null) return null;
+
+            _dbSet.Update(entity);
+            await _context.SaveChangesAsync();
+            return entity;
+        }
+        public virtual async Task<bool> UpdateRefreshTokenAsync(T entity)
         {
             if (entity == null) return false;
-
             _dbSet.Update(entity);
             await _context.SaveChangesAsync();
             return true;

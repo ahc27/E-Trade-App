@@ -12,10 +12,9 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
+COPY classLib/ classLib/
 COPY AuthAPI/ AuthAPI/
-COPY UserMicroservice/ UserMicroservice/
 RUN dotnet restore "./AuthAPI/AuthAPI.csproj"
-RUN dotnet restore "./UserMicroservice/UserMicroservice.csproj"
 
 WORKDIR "/src/AuthAPI"
 RUN dotnet build "./AuthAPI.csproj" -c $BUILD_CONFIGURATION -o /app/build

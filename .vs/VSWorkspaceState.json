@@ -1,6 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\WebApplication2",
+    "\\WebApplication2\\Data",
+    "\\WebApplication2\\Data\\Repositories",
+    "\\WebApplication2\\Service",
+    "\\WebApplication2\\Service\\Dtos"
   ],
+  "SelectedNode": "\\WebApplication2\\Data\\User.cs",
   "PreviewInSolutionExplorer": false
 }

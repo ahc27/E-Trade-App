@@ -1,0 +1,37 @@
+﻿using RabbitMQ.Client;
+using System.Text;
+using System.Text.Json;
+using classLib;
+
+namespace AuthAPI.Service.Messaging
+{
+    public class RabbitMqProducer
+    {
+        private readonly IModel _channel;
+
+        public RabbitMqProducer()
+        {
+            var factory = new ConnectionFactory() { HostName = "rabbitmq", UserName = "ali", Password = "ali" };
+            var connection = factory.CreateConnection();
+            _channel = connection.CreateModel();
+
+            _channel.QueueDeclare(queue: "auth-log-queue",
+                                  durable: false,
+                                  exclusive: false,
+                                  autoDelete: false,
+                                  arguments: null);
+        }
+
+        public void SendLog(UserLog log)
+        {
+            var json = JsonSerializer.Serialize(log);
+            var body = Encoding.UTF8.GetBytes(json);
+
+            _channel.BasicPublish(exchange: "",
+                                  routingKey: "auth-log-queue",
+                                  basicProperties: null,
+                                  body: body);
+
+        }
+    }
+}

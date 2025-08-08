@@ -5,3 +5,11 @@ C:\Users\ali\source\repos\WebApplication2\UserMicroservice\obj\Debug\net8.0\stat
 C:\Users\ali\source\repos\WebApplication2\UserMicroservice\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\ali\source\repos\WebApplication2\UserMicroservice\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\ali\source\repos\WebApplication2\UserMicroservice\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\ali\source\repos\WebApplication2\UserMicroservice\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\ali\source\repos\WebApplication2\UserMicroservice\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\ali\source\repos\WebApplication2\UserMicroservice\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\ali\source\repos\WebApplication2\UserMicroservice\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\ali\source\repos\WebApplication2\UserMicroservice\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\ali\source\repos\WebApplication2\UserMicroservice\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\ali\source\repos\WebApplication2\UserMicroservice\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\ali\source\repos\WebApplication2\UserMicroservice\obj\Debug\net8.0\staticwebassets.build.json

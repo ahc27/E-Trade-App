@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using CategoryMicroservice.Data;
 using CategoryMicroservice.Data.Repositories;
+using CategoryMicroservice.Infrastructures.Messaging;
 using CategoryMicroservice.Service.Dtos;
+using classLib.LogDtos;
 
 namespace CategoryMicroservice.Service
 {
@@ -10,11 +12,13 @@ namespace CategoryMicroservice.Service
         {
             private readonly IMapper _mapper;
             private readonly CategoryRepository _categoryRepository;
+            private readonly RabbitMqProducer _rabbitMqProducer;
 
-            public CategoryService(CategoryRepository categoryRepository, IMapper mapper)
+        public CategoryService(CategoryRepository categoryRepository, IMapper mapper,RabbitMqProducer rabbitMqProducer)
             {
                 _categoryRepository = categoryRepository;
                 _mapper = mapper;
+                _rabbitMqProducer = rabbitMqProducer;
             }
 
             public async Task<IEnumerable<CreateCategoryDto>> GetAllAsync()
@@ -36,11 +40,18 @@ namespace CategoryMicroservice.Service
 
             var categoryEntity = _mapper.Map<Category>(categoryDto);
 
-            if(categoryEntity != null) categoryEntity.ParentCategoryId = await _categoryRepository.GetByName(categoryDto.ParentCategoryName);
-
+            if (categoryEntity != null) categoryEntity.ParentCategoryId = await _categoryRepository.GetByName(categoryDto.ParentCategoryName);
 
             var addedCategory = await _categoryRepository.Add(categoryEntity);
-                return addedCategory;
+
+            if (addedCategory == null)
+            {
+                await LogCategory(null, false, "Add Category", "Category could not be added.", null);
+                return null;
+            }
+            
+            await LogCategory(addedCategory.Id.ToString(), true, "Add Category", "Category added successfully.", null);
+            return addedCategory;
             }
 
 
@@ -51,11 +62,20 @@ namespace CategoryMicroservice.Service
                 {
                     return false;
                 }
-                _mapper.Map(categoryDto, existingCategory); // direkt olarak mevcut entity'ye map'le
+                _mapper.Map(categoryDto, existingCategory);
 
             if (existingCategory != null) existingCategory.ParentCategoryId = await _categoryRepository.GetByName(categoryDto.ParentCategoryName);
 
-            return await _categoryRepository.Update(existingCategory);
+            var updatedCategory = await _categoryRepository.Update(existingCategory);
+
+            if (updatedCategory == null)
+            {
+                await LogCategory(id.ToString(), false, "Update Category", "Category could not be updated.", null);
+                return false;
+            }
+                
+            await LogCategory(id.ToString(), true, "Update Category", "Category updated successfully.", null);
+            return true;
             }
 
 
@@ -64,6 +84,32 @@ namespace CategoryMicroservice.Service
                 return await _categoryRepository.Delete(id);
             }
 
+        public async Task<bool> LogCategory(string? entityId, bool success, string action, string message, Exception? exception)
+        {
+            try
+            {
+
+                var CategoryLog = new Log
+                {
+                    IsSuccess = success,
+                    Action = action,
+                    Message = message,
+                    Timestamp = DateTime.UtcNow,
+                    EntityId = entityId,
+                    ServiceName = "AuthAPI",
+                    Level = success ? "Information" : "Error",
+                    Exception = exception
+                };
+
+                await _rabbitMqProducer.SendLogAsync(CategoryLog);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Logging failed: {ex.Message}");
+                return false;
+            }
+        }
     }
     
 }

@@ -1,10 +1,11 @@
+using classLib;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
 using UserMicroservice.Data;
 using UserMicroservice.Data.Repositories;
 using UserMicroservice.Infrastructures.Mapping;
+using UserMicroservice.Infrastructures.Messaging;
 using UserMicroservice.Services;
 using UserMicroservice.Validators;
 
@@ -21,6 +22,8 @@ builder.Services.AddAutoMapper(typeof(UserMapping).Assembly);
 builder.Services.AddValidatorsFromAssemblyContaining<CreateUserValidator>();
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddControllers();
+builder.Services.AddSingleton<RabbitMqConnectionManager>();
+builder.Services.AddSingleton<RabbitMqProducer>();
 
 
 builder.Services.AddEndpointsApiExplorer();

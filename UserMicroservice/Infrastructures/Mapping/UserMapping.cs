@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using UserMicroservice.Data;
 using UserMicroservice.Services.Dtos;
+using classLib;
 
 namespace UserMicroservice.Infrastructures.Mapping
 {
@@ -10,6 +11,9 @@ namespace UserMicroservice.Infrastructures.Mapping
         {
         CreateMap<CreateUserdto, User>().ReverseMap();
         CreateMap<UpdateUserdto, User>().ReverseMap();
+        CreateMap<AuthorizationDto,User >().ReverseMap();
+        CreateMap<User, GetUserDto>();
+
         }
     }
 }

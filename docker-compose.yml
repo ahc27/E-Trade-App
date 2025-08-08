@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   category-api:
     build:
@@ -45,8 +44,6 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:8080
       - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Username=postgres;Password=Bulut2021;Database=WebApplication2
-    depends_on:
-      - user-api
     networks:
       - app-network
 
@@ -62,6 +59,38 @@ services:
       - auth-api 
     ports:
       - "5017:8080"   
+    networks:
+      - app-network
+
+  razorweb:
+    build:
+      context: .
+      dockerfile: App/Dockerfile
+    container_name: razorweb
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - apigateway
+    ports:
+      - "5020:8080"
+    volumes:  
+      - ./dataprotection-keys:/home/app/.aspnet/DataProtection-Keys
+    networks:
+      - app-network
+
+  loggingapi:
+    build:
+      context: .
+      dockerfile: LoggingAPI/Dockerfile
+    container_name: log_api
+    depends_on:
+      - auth-api 
+      - mongodb
+      - rabbitmq
+    ports:
+      - "5018:8080"   
+    environment:
+      - MongoDB__ConnectionString=mongodb://mongodb:27017/LogDatabase
     networks:
       - app-network
 
@@ -98,6 +127,29 @@ services:
       - postgres
     networks:
       - app-network 
+
+  mongodb:
+    image: mongo:7.0
+    container_name: mongodb
+    restart: always
+    ports:
+        - "27018:27017"
+    volumes:
+        - ./mongo_data:/data/db
+    networks:
+      - app-network 
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"     # Application communication
+      - "15672:15672"   # Management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: ali
+      RABBITMQ_DEFAULT_PASS: ali
+    networks:
+      - app-network
 
 volumes:
   pgdata:

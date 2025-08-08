@@ -1,0 +1,12 @@
+C:\Users\ali\source\repos\WebApplication2\classLib\bin\Debug\net8.0\classLib.deps.json
+C:\Users\ali\source\repos\WebApplication2\classLib\bin\Debug\net8.0\classLib.dll
+C:\Users\ali\source\repos\WebApplication2\classLib\bin\Debug\net8.0\classLib.pdb
+C:\Users\ali\source\repos\WebApplication2\classLib\obj\Debug\net8.0\classLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ali\source\repos\WebApplication2\classLib\obj\Debug\net8.0\classLib.AssemblyInfoInputs.cache
+C:\Users\ali\source\repos\WebApplication2\classLib\obj\Debug\net8.0\classLib.AssemblyInfo.cs
+C:\Users\ali\source\repos\WebApplication2\classLib\obj\Debug\net8.0\classLib.csproj.CoreCompileInputs.cache
+C:\Users\ali\source\repos\WebApplication2\classLib\obj\Debug\net8.0\classLib.dll
+C:\Users\ali\source\repos\WebApplication2\classLib\obj\Debug\net8.0\refint\classLib.dll
+C:\Users\ali\source\repos\WebApplication2\classLib\obj\Debug\net8.0\classLib.pdb
+C:\Users\ali\source\repos\WebApplication2\classLib\obj\Debug\net8.0\ref\classLib.dll
+C:\Users\ali\source\repos\WebApplication2\classLib\obj\Debug\net8.0\classLib.csproj.AssemblyReference.cache

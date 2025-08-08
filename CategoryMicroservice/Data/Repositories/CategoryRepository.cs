@@ -51,20 +51,20 @@ namespace CategoryMicroservice.Data.Repositories
             return true;
         }
 
-        public async Task<bool> Update(Category CategoryEntity)
+        public async Task<Category> Update(Category CategoryEntity)
         {
 
             if (CategoryEntity == null)
             {
-                return false;
+                return null;
             }
 
             var existingCategory = await _dbSet.FindAsync(CategoryEntity.Id);
-            if (existingCategory == null) return false;
+            if (existingCategory == null) return null;
 
             _dbSet.Update(existingCategory);
             await _context.SaveChangesAsync();
-            return true;
+            return existingCategory;
 
         }
     }

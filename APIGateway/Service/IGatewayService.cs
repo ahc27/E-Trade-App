@@ -1,10 +1,11 @@
 ﻿using APIGateway.Service.Dto;
+using classLib;
 
 namespace APIGateway.Service
 {
     public interface IGatewayService
     {
-        public Task<string> GetAllUsers();
+        public Task<List<GetUserDto>> GetAllUsers(HttpRequest request);
 
         public Task<string> GetUserById(int id);
 
@@ -12,6 +13,9 @@ namespace APIGateway.Service
 
         public Task<string> Login(LoginDto request);
 
+        public Task<string> GetCategoryById(int id);
+
+        public Task<string> GetAllCategories();
 
     }
 }

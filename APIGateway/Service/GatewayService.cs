@@ -1,7 +1,9 @@
 ﻿using APIGateway.Service.Dto;
 using Microsoft.Extensions.Options;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
+using classLib;
 
 namespace APIGateway.Service
 {
@@ -16,18 +18,27 @@ namespace APIGateway.Service
             _serviceUrls = options.Value;
         }
 
-        public async Task<String> GetAllUsers()
+        public async Task<List<GetUserDto>> GetAllUsers(HttpRequest request)
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, $"{_serviceUrls.UserApi.GetAllUsers}");
-            
-            var response = await _httpClient.SendAsync(request);
+            var token = request.Cookies["access_token"];
 
-            if (!response.IsSuccessStatusCode)
+            if (!string.IsNullOrEmpty(token))
             {
-                throw new HttpRequestException($"Error fetching users: {response.ReasonPhrase}");
+                _httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", token);
             }
 
-            return await response.Content.ReadAsStringAsync();
+            // DÜZELTME: TAM URL KULLAN!
+            var response = await _httpClient.GetAsync(_serviceUrls.UserApi.GetAllUsers);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<List<GetUserDto>>(json,
+                    new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            }
+
+            return null;
         }
 
         public async Task<String> GetUserById(int id)
@@ -89,7 +100,31 @@ namespace APIGateway.Service
                 return null;
             }
         }
+        public async Task<String> GetAllCategories()
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, _serviceUrls.CategoryApi.GetAllCategories);
+            var response = await _httpClient.SendAsync(request);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Error fetching all categories: {response.ReasonPhrase}");
+            }
+            return await response.Content.ReadAsStringAsync();
+
+        }
+
+        public async Task<String> GetCategoryById(int id)
+        {
+            var url = _serviceUrls.CategoryApi.GetCategoryById.Replace("{id}", id.ToString());
+            var request = new HttpRequestMessage(HttpMethod.Get, url);
+            var response = await _httpClient.SendAsync(request);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Error fetching category by ID: {response.ReasonPhrase}");
+            }
+            return await response.Content.ReadAsStringAsync();
+        }
 
 
-    }
+
+        }
 }

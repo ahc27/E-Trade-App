@@ -1,0 +1,39 @@
+﻿@page
+@model App.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    
+    <div class="form-group">
+        <label asp-for="Login.email">Email</label>
+        <input asp-for="Login.email" class="form-control" />
+        <span asp-validation-for="Login.email" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Login.password">Password</label>
+        <input asp-for="Login.password" type="password" class="form-control" />
+        <span asp-validation-for="Login.password" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Token))
+{
+    <div class="alert alert-success mt-3">
+        <p><strong>Login Successful!</strong></p>
+        <p><strong>Token:</strong> @Model.Token</p>
+        <a href="/Users" class="btn btn-success">Go to Users</a>
+    </div>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

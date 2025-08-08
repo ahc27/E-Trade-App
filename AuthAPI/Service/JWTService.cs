@@ -1,10 +1,9 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using System.Numerics;
 using System.Security.Claims;
 using System.Text;
-using UserMicroservice.Data;
 using JwtRegisteredClaimNames = Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames;
+using classLib;
 
 namespace AuthAPI.Service
 {
@@ -17,7 +16,7 @@ namespace AuthAPI.Service
             _configuration = configuration;
         }
 
-        public string GenerateToken(User user)
+        public string GenerateToken(AuthorizationDto user)
         {
             var tokenhandler = new JwtSecurityTokenHandler();
             var jwtConfig = _configuration.GetSection("JwtConfig");
@@ -51,11 +50,11 @@ namespace AuthAPI.Service
             return tokenhandler.WriteToken(token);
         }
 
-        public string GenerateRefreshToken(User user)
+        public string GenerateRefreshToken(AuthorizationDto user)
         {
             var tokenhandler = new JwtSecurityTokenHandler();
             var key = _configuration.GetSection("JwtConfig")["Key"];
-            int Expires = Int32.Parse( _configuration.GetSection("JwtConfig")["RefreshTokenExpireTime"]);
+            int Expires = Int32.Parse(_configuration.GetSection("JwtConfig")["RefreshTokenExpireTime"]);
 
             var claims = new[]{
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),

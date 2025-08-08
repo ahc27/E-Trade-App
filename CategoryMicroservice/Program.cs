@@ -1,11 +1,13 @@
+using classLib;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using CategoryMicroservice.Data;
 using CategoryMicroservice.Data.Repositories;
-using CategoryMicroservice.Infrastructures.Mapping;
 using CategoryMicroservice.Service;
 using CategoryMicroservice.Validators;
+using CategoryMicroservice.Infrastructures.Mapping;
+using CategoryMicroservice.Infrastructures.Messaging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,8 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddAutoMapper(typeof(CategoryMapping).Assembly);
 builder.Services.AddValidatorsFromAssemblyContaining<CreateCategoryValidator>();
 builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddSingleton<RabbitMqConnectionManager>();
+builder.Services.AddSingleton<RabbitMqProducer>();
 
 
 // Add services to the container.

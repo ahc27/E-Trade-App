@@ -1,0 +1,33 @@
+db.auth_logs.find() 
+use LogDatabase
+db.auth_logs.find() 
+use LogDatabase
+db LogDatabase
+db.getCollectionNames()
+db.auth_logs.find() 
+use LogbaseData
+exit
+db.auth_logs.find() 
+use LogDatabase
+exit
+db.auth_logs.find() 
+use LogDatabase
+exit
+db.auth_logs.find() 
+use LogDatabase
+db.auth_logs.find() 
+use LogDatabase
+db.getCollectionNames()
+db.auth_logs.find() 
+show collections
+exit
+db.auth_logs.find().pretty()
+show collections
+use LogDatabase
+db.auth_logs.find() 
+db.getCollectionNames()
+show collections
+db.LogInfo.find().pretty()
+use LogDatabase
+exit
+show dbs

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using classLib;
+using Microsoft.AspNetCore.Mvc;
 using UserMicroservice.Services;
 using UserMicroservice.Services.Dtos;
 
@@ -20,16 +21,26 @@ namespace UserMicroservice.Presentation.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            IEnumerable<CreateUserdto> users = await _userService.GetAllAsync();
+            IEnumerable<GetUserDto> users = await _userService.GetAllAsync();
 
             return Ok(users);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("id/{id}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
             var user = await _userService.GetByIdAsync(id);
 
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
+        [HttpGet("email/{email}")]
+        public async Task<IActionResult> GetByEmail([FromRoute] string email)
+        {
+            var user = await _userService.GetByEmailAsync(email);
             if (user == null)
             {
                 return NotFound();
@@ -81,6 +92,15 @@ namespace UserMicroservice.Presentation.Controllers
             if (!isUpdated) return BadRequest();
 
             return Ok();
+        }
+
+        [HttpPut("refreshtoken")]
+        public async Task<IActionResult> UpdateRefreshToken([FromBody] RefreshTokenDto dto)
+        {
+            var result = await _userService.UpdateRefreshTokenAsync(dto);
+            if (!result) return NotFound("User not found.");
+
+            return NoContent(); // 204 No Content
         }
 
     }

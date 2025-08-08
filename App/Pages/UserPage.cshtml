@@ -1,0 +1,32 @@
+﻿@page
+@model UserPageModel
+
+<form method="post">
+    <label>Token:</label>
+    <input asp-for="Token" />
+    <button type="submit">Kullanıcıları Getir</button>
+</form>
+
+@if (Model.Users != null && Model.Users.Any())
+{
+    <table>
+        <thead>
+            <tr><th>Email</th><th>Ad</th><th>soyad</th><th>Sifre</th><th>Numara</th><th>Adres</th><th>Satici</th><th>Rol</th></tr>
+        </thead>
+        <tbody>
+            @foreach(var user in Model.Users)
+            {
+                <tr>
+                    <td>@user.email</td>
+                    <td>@user.firstName</td>
+                    <td>@user.lastName</td>
+                    <td>@user.password</td>
+                    <td>@user.phoneNumber</td>
+                    <td>@user.address</td>
+                    <td>@user.isSeller</td>
+                    <td>@user.role</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

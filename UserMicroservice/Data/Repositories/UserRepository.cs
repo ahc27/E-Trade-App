@@ -1,5 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace UserMicroservice.Data.Repositories
 {
@@ -41,19 +40,24 @@ namespace UserMicroservice.Data.Repositories
             return await base.Delete(id);
         }
 
-        public async Task<bool> Update(User UserEntity)
+        public async Task<User> Update(User UserEntity)
         {
 
             if (UserEntity == null)
             {
-                return false;
+                return null;
             }
 
             var existingUser = await _context.Users.FindAsync(UserEntity.Id);
-            if (existingUser == null) return false;
+            if (existingUser == null) return null;
 
             return await base.Update(UserEntity);
 
+        }
+        public async Task<bool> UpdateRefreshTokenAsync(User user)
+        {
+            var isSuccess = await base.UpdateRefreshTokenAsync(user);
+            return isSuccess;
         }
         public async Task<User> getByEmail(string email)
         {
