@@ -4,7 +4,7 @@ using classLib.LogDtos;
 using UserMicroservice.Data;
 using UserMicroservice.Data.Repositories;
 using UserMicroservice.Infrastructures.Messaging;
-using classLib;
+using classLib.UserDtos;
 using UserMicroservice.Services.Dtos;
 
 namespace UserMicroservice.Services
@@ -42,19 +42,26 @@ namespace UserMicroservice.Services
         }
 
 
-        public async Task<User> AddAsync(CreateUserdto userDto)
+        public async Task<bool> AddAsync(CreateUserdto userDto)
         {
+            var existingUser = await _userRepository.GetByEmail(userDto.email);
+            if (existingUser != null)
+            {
+                await LogUser(null, false, "Add User", "User could not be added", new Exception("User already exists in the database"));
+                return false;
+            }
+
             userDto.password = BCrypt.Net.BCrypt.HashPassword(userDto.password);
             var userEntity = _mapper.Map<User>(userDto);
+            userEntity.role = "User";
             var addedUser = await _userRepository.Add(userEntity);
             if (addedUser == null)
             {
                 await LogUser(null, false, "Add User", "User could not be added", new Exception("Failed to add user"));
-                throw new Exception("User could not be added.");
+                return false;
             }
-
             await LogUser(addedUser.Id.ToString(), true, "Add User", "User added successfully", null);
-            return addedUser;
+            return true;
         }
 
 
@@ -115,7 +122,7 @@ namespace UserMicroservice.Services
                     Message = message,
                     Timestamp = DateTime.UtcNow,
                     EntityId = entityId,
-                    ServiceName = "AuthAPI",
+                    ServiceName = "User Microservice",
                     Level = success ? "Information" : "Error",
                     Exception = exception
                 };

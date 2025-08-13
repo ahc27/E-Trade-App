@@ -38,7 +38,7 @@ namespace AuthAPI.Service
             var tokendescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddMinutes(60),
+                Expires = DateTime.UtcNow.AddMinutes(15),
                 Issuer = issuer,
                 Audience = audience,
                 SigningCredentials = new SigningCredentials(
@@ -59,6 +59,7 @@ namespace AuthAPI.Service
             var claims = new[]{
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+            new Claim(JwtRegisteredClaimNames.Email, user.email),
             new Claim("tokenType", "refresh"),
             };
 
@@ -88,7 +89,7 @@ namespace AuthAPI.Service
 
                 var tokenHandler = new JwtSecurityTokenHandler();
 
-                var key = Encoding.ASCII.GetBytes(_configuration.GetSection("JwtConfig")["Key"]); 
+                var key = Encoding.ASCII.GetBytes(_configuration.GetSection("JwtConfig")["Key"]);
 
                 tokenHandler.ValidateToken(token, new TokenValidationParameters
                 {
@@ -98,6 +99,13 @@ namespace AuthAPI.Service
                     ValidateAudience = false,
                     ValidateLifetime = true,
                 }, out SecurityToken validatedToken);
+
+                var email = tokenHandler.ReadJwtToken(token).Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Email)?.Value;
+
+                if (string.IsNullOrEmpty(email))
+                {
+                    throw new SecurityTokenException("Email claim missing");
+                }
 
                 return true;
             }

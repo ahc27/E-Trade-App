@@ -36,7 +36,6 @@ app.UseSession();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapRazorPages();
 
 app.Run();

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CategoryMicroservice.Service;
 using CategoryMicroservice.Service.Dtos;
+using classLib;
 
 namespace CategoryMicroservice.Presentation.Controllers
 {
@@ -20,7 +21,7 @@ namespace CategoryMicroservice.Presentation.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            IEnumerable<CreateCategoryDto> categorys = await _categoryService.GetAllAsync();
+            IEnumerable<GetCategoryDto> categorys = await _categoryService.GetAllAsync();
 
             return Ok(categorys);
         }

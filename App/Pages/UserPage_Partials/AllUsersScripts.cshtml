@@ -1,0 +1,61 @@
+﻿<script>
+    document.getElementById("loadUsersBtn").addEventListener("click", function () {
+        fetch('@Url.Page("UserPage", "AllUsers")') 
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById("usersContainer").innerHTML = `<div class="alert alert-danger">${data.error}</div>`;
+                    return;
+                }
+
+                let html = `
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <h5 class="mb-0">Users (${data.length})</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Email</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Phone Number</th>
+                                            <th>Address</th>
+                                            <th>Seller</th>
+                                            <th>Role</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                `;
+
+                data.forEach(user => {
+                    html += `
+                        <tr>
+                            <td>${user.email}</td>
+                            <td>${user.firstName}</td>
+                            <td>${user.lastName}</td>
+                            <td>${user.phoneNumber}</td>
+                            <td>${user.address}</td>
+                            <td>${user.isSeller}</td>
+                            <td>${user.role}</td>
+                        </tr>
+                    `;
+                });
+
+                html += `
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById("usersContainer").innerHTML = html;
+            })
+            .catch(err => {
+                document.getElementById("usersContainer").innerHTML = `<div class="alert alert-danger">Error: ${err}</div>`;
+            });
+    });
+</script>

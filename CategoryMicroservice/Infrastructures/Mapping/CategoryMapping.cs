@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CategoryMicroservice.Data;
 using CategoryMicroservice.Service.Dtos;
+using classLib;
 
 namespace CategoryMicroservice.Infrastructures.Mapping
 {
@@ -10,6 +11,7 @@ namespace CategoryMicroservice.Infrastructures.Mapping
         {
             CreateMap<CreateCategoryDto, Category>().ReverseMap();
             CreateMap<UpdateCategoryDto, Category>().ReverseMap();
+            CreateMap<GetCategoryDto, Category>().ReverseMap();
         }
     }
 }

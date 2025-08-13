@@ -1,0 +1,16 @@
+﻿<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = JSON.parse(this.dataset.category);
+            selectCategory(category.Name);
+        });
+    });
+});
+
+function selectCategory( name) {
+    console.log('Seçilen product:', name);
+}
+</script>

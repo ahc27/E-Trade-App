@@ -1,6 +1,6 @@
-﻿using AutoMapper;
-using classLib;
+﻿using classLib;
 using classLib.LogDtos;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace AuthAPI.Service
 {
@@ -8,18 +8,17 @@ namespace AuthAPI.Service
     {
         private readonly HttpClient _httpClient;
         private readonly IJWTService _jwtService;
-        private readonly IMapper _mapper;
         private readonly RabbitMqProducer _rabbitMqProducer;
 
-        public AuthService(IJWTService jwtService, IMapper mapper, IHttpClientFactory httpClient, RabbitMqProducer rabbitMqProducer)
+        public AuthService(IJWTService jwtService,IHttpClientFactory httpClient, RabbitMqProducer rabbitMqProducer)
         {
-            _mapper = mapper;
+
             _jwtService = jwtService; 
             _httpClient = httpClient.CreateClient();
             _rabbitMqProducer = rabbitMqProducer;
         }
 
-        public async Task<string?> Login(UserAuth request)
+        public async Task<AuthResponse> Login(UserAuth request)
         {
             var user = await GetUserByEmail(request.email);
             if (user == null) return null;
@@ -27,18 +26,18 @@ namespace AuthAPI.Service
             bool passwordMatch = BCrypt.Net.BCrypt.Verify(request.password, user.password);
             if (!passwordMatch) return null;
 
-            if (!await _jwtService.isTokenValid(user.refreshToken))
+            user.refreshToken = _jwtService.GenerateRefreshToken(user);
+
+            var updateRequest = new HttpRequestMessage(HttpMethod.Put, "http://user_api:8080/api/Users/refreshtoken")
             {
-                user.refreshToken = _jwtService.GenerateRefreshToken(user);
+              Content = JsonContent.Create(user)
+            };
 
-                var updateRequest = new HttpRequestMessage(HttpMethod.Put, "http://user_api:8080/api/Users/refreshtoken")
-                {
-                    Content = JsonContent.Create(user)
-                };
+            var updateResponse = await _httpClient.SendAsync(updateRequest);
 
-                var updateResponse = await _httpClient.SendAsync(updateRequest);
-
-                if (!updateResponse.IsSuccessStatusCode) return null;
+            if (!updateResponse.IsSuccessStatusCode)
+            {
+                bool failedLog = await LogAuth(null, false, "Login", "User login failed", new ArgumentException("User cannot be found."));
             }
 
             var token = _jwtService.GenerateToken(user);
@@ -47,38 +46,55 @@ namespace AuthAPI.Service
                 await LogAuth(user.Id.ToString(), false, "Login", "Token generation failed",new InvalidOperationException("Token cannot be  generated") );
                 return null;
             }
+            
+            var authResponse = new AuthResponse { accessToken = token ,refreshToken=user.refreshToken};
+
             await LogAuth(user.Id.ToString(), true, "Login", "User logged in successfully", null);
-            return token;
+            return authResponse;
         }
 
-        public async Task<string> Refresh(UserAuth request)
+        public async Task<AuthResponse> Refresh(string refreshToken)
         {
-            /*  var tokenHandler = new JwtSecurityTokenHandler();
-              var jwtToken = tokenHandler.ReadJwtToken(expiredToken);
+            if (!await _jwtService.isTokenValid(refreshToken))
+            {
+                await LogAuth(null, false, "Refresh", "Invalid or expired refresh token", null);
+                return null;
+            }
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+              var jwtToken = tokenHandler.ReadJwtToken(refreshToken);
               var emailClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Email);
 
               var email = emailClaim?.Value;
 
               if (string.IsNullOrEmpty(email))
-                  throw new Exception(); */
-            var user = await GetUserByEmail(request.email);
-            if (user == null) return null;
-
-            bool passwordMatch = BCrypt.Net.BCrypt.Verify(request.password, user.password);
-            if (!passwordMatch)
-                return null;
-
-            if (string.IsNullOrEmpty(user.refreshToken))
-                return null;
-
-            if (await _jwtService.isTokenValid(user.refreshToken))
+                  throw new Exception(); 
+            var user = await GetUserByEmail(email);
+            if (user == null)
             {
-                return _jwtService.GenerateToken(user);
-            }
-            else
-            {
+                bool failedLog = await LogAuth(null, false, "Login", "User login failed", new ArgumentException("User cannot be found."));
                 return null;
             }
+
+            var updateRequest = new HttpRequestMessage(HttpMethod.Put, "http://user_api:8080/api/Users/refreshtoken")
+            {
+                Content = JsonContent.Create(user)
+            };
+
+            var updateResponse = await _httpClient.SendAsync(updateRequest);
+
+            if (!updateResponse.IsSuccessStatusCode)
+            {
+                bool failedLog = await LogAuth(null, false, "Login", "User login failed", new ArgumentException("Refresh Token cannot be updated."));
+            }
+
+            AuthResponse response = new AuthResponse
+            {
+                accessToken = _jwtService.GenerateToken(user),
+                refreshToken = _jwtService.GenerateRefreshToken(user)
+            };
+
+            return response;
         }
 
         public async Task<bool> LogAuth(string? entityId, bool success, string action, string message,Exception? exception)

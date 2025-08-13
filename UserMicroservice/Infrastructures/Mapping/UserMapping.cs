@@ -2,6 +2,7 @@
 using UserMicroservice.Data;
 using UserMicroservice.Services.Dtos;
 using classLib;
+using classLib.UserDtos;
 
 namespace UserMicroservice.Infrastructures.Mapping
 {

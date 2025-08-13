@@ -1,7 +1,10 @@
 ﻿using APIGateway.Service;
 using APIGateway.Service.Dto;
+using classLib;
+using classLib.UserDtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace APIGateway.Presentation.Controllers
 {
@@ -24,50 +27,63 @@ namespace APIGateway.Presentation.Controllers
         {
 
             var content = await _gatewayService.Login(request);
+            var authResponse = JsonSerializer.Deserialize<AuthResponse>(content);
 
-            if (string.IsNullOrEmpty(content))
+            if (authResponse == null)
             {
                 return BadRequest(new { message = "Invalid request" });
             }
-
-            return Content(content, "application/json");
-
+            return Ok(authResponse);
         }
 
-        [Authorize(Roles = "Admin,User")]
+        [AllowAnonymous]
         [HttpPost("refresh")]
-        public async Task<IActionResult> RefreshToken([FromBody] LoginDto request)
+        public async Task<IActionResult> RefreshToken([FromBody] string request)
         {
-            Console.WriteLine("📍 Gateway Controller => GetAllUsers çağrıldı");
 
-            if (request == null || string.IsNullOrEmpty(request.email) || string.IsNullOrEmpty(request.password))
+            if (request == null)
                 return BadRequest(new { message = "Invalid request" });
 
             var content = await _gatewayService.RefreshToken(request);
 
-            if (string.IsNullOrEmpty(content))
+            if (content==null)
             {
                 return BadRequest(new { message = "Invalid request" });
             }
-            return Content(content, "application/json");
-
-
+            return Ok(content);
         }
+
+        [AllowAnonymous]
+        [HttpPost("register")]
+        public async Task <IActionResult> Register([FromBody] CreateUserdto createUserdto )
+        {
+            if (createUserdto == null)
+                return BadRequest(new { message = "Invalid request" });
+
+            var isRegistered = await _gatewayService.Register(createUserdto);
+
+            if (!isRegistered)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
+        }
+
 
         [Authorize(Roles = "Admin")]
         [HttpGet("Users")]
         public async Task<IActionResult> GetAllUsers()
         {
-            // "Request" burada doğrudan geçerli
             var users = await _gatewayService.GetAllUsers(Request);
 
-            if (users == null || !users.Any())
+            if (users == null)
                 return NotFound("No users found");
 
             return Ok(users);
         }
 
-        [HttpGet("UserbyID/{id}")]
+        [HttpGet("UserbyId/{id}")]
         [Authorize(Roles = "Admin,User")]
         public async Task<IActionResult> GetUserbyID(int id)
         {
@@ -87,7 +103,7 @@ namespace APIGateway.Presentation.Controllers
         {
             var content = await _gatewayService.GetAllCategories();
             if (content == null) return NotFound("No categories found");
-            return Content(content, "application/json");
+            return Ok(content);
         }
 
         [HttpGet("CategoryById/{id}")]
@@ -100,7 +116,7 @@ namespace APIGateway.Presentation.Controllers
 
             if (content == null) return NotFound("Invalid Id");
 
-            return Content(content, "application/json");
+            return Ok(content);
         }
 
 

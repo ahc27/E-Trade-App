@@ -24,16 +24,12 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/source/repos/WebApplication2/App/Pages/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/ali/source/repos/WebApplication2/App/Pages/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/source/repos/WebApplication2/App/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+[C:/Users/ali/source/repos/WebApplication2/App/Pages/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ali/source/repos/WebApplication2/App/Pages/Shared/_ValidationScriptsPartial.cshtml]
@@ -42,6 +38,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ali/source/repos/WebApplication2/App/Pages/UserPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ali/source/repos/WebApplication2/App/Pages/UserPage_Partials/AllCategoriesScripts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2VfUGFydGlhbHNcQWxsQ2F0ZWdvcmllc1NjcmlwdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ali/source/repos/WebApplication2/App/Pages/UserPage_Partials/AllUsersScripts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2VfUGFydGlhbHNcQWxsVXNlcnNTY3JpcHRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ali/source/repos/WebApplication2/App/Pages/UserPage_Partials/CategoryByIdScripts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2VfUGFydGlhbHNcQ2F0ZWdvcnlCeUlkU2NyaXB0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ali/source/repos/WebApplication2/App/Pages/UserPage_Partials/CategoryScripts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2VfUGFydGlhbHNcQ2F0ZWdvcnlTY3JpcHRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ali/source/repos/WebApplication2/App/Pages/UserPage_Partials/UserByIdScripts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2VfUGFydGlhbHNcVXNlckJ5SWRTY3JpcHRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ali/source/repos/WebApplication2/App/Pages/_ViewImports.cshtml]

@@ -1,7 +1,9 @@
 ﻿using classLib;
+using classLib.UserDtos;
 using Microsoft.AspNetCore.Mvc;
 using UserMicroservice.Services;
 using UserMicroservice.Services.Dtos;
+
 
 namespace UserMicroservice.Presentation.Controllers
 {
@@ -73,7 +75,7 @@ namespace UserMicroservice.Presentation.Controllers
 
             var UserEntity = await _userService.AddAsync(user);
 
-            return CreatedAtAction(nameof(GetById), new { id = UserEntity.Id }, UserEntity);
+            return StatusCode(201);
         }
 
 
@@ -100,7 +102,7 @@ namespace UserMicroservice.Presentation.Controllers
             var result = await _userService.UpdateRefreshTokenAsync(dto);
             if (!result) return NotFound("User not found.");
 
-            return NoContent(); // 204 No Content
+            return NoContent(); 
         }
 
     }

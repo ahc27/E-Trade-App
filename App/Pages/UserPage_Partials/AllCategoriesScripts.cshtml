@@ -1,0 +1,51 @@
+﻿<script>
+        document.getElementById("loadCategoriesBtn").addEventListener("click", function () {
+        fetch('@Url.Page("UserPage", "AllCategories")') 
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById("AllCategoriesContainer").innerHTML = `<div class="alert alert-danger">${data.error}</div>`;
+                    return;
+                }
+
+                let html = `
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <h5 class="mb-0">Categories (${data.length})</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Parent Category</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                `;
+
+                data.forEach(category => {
+                    html += `
+                        <tr>
+                            <td>${category.name}</td>
+                            <td>${category.parentCategoryName}</td>
+                        </tr>
+                    `;
+                });
+
+                html += `
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById("AllCategoriesContainer").innerHTML = html;
+            })
+            .catch(err => {
+                document.getElementById("AllCategoriesContainer").innerHTML = `<div class="alert alert-danger">Error: ${err}</div>`;
+            });
+    });
+</script>

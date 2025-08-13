@@ -11,7 +11,7 @@ namespace App.Pages
     {
         [BindProperty]
         public UserAuth Login { get; set; }
-        public string Token { get; set; }
+        public AuthResponse Tokens { get; set; }
 
         private readonly HttpClient _httpClient;
 
@@ -20,39 +20,53 @@ namespace App.Pages
             _httpClient = httpClientFactory.CreateClient("ApiGateway");
         }
 
-
-        //[IgnoreAntiforgeryToken]
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostLoginAsync()
         {
             var json = JsonSerializer.Serialize(Login);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-
             var response = await _httpClient.PostAsync("login", content);
 
-            if (response.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode)
             {
-                var jsonResponse = await response.Content.ReadAsStringAsync();
+                var log = $"Error: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}";
+                Console.WriteLine(log);
+                return Page();
+            }
 
-                using JsonDocument doc = JsonDocument.Parse(jsonResponse);
-                Token = doc.RootElement.GetProperty("token").GetString();
+            var responseContent = await response.Content.ReadAsStringAsync();
 
-                // Tarayýcýya cookie olarak gönder
-                Response.Cookies.Append("access_token", Token, new CookieOptions
+            var authResponse = JsonSerializer.Deserialize<AuthResponse>(responseContent);
+
+            if (authResponse != null && !string.IsNullOrEmpty(authResponse.accessToken))
+            {
+                Response.Cookies.Append("access_token", authResponse.accessToken, new CookieOptions
                 {
                     HttpOnly = true,
-                    Secure = false,           
-                    SameSite = SameSiteMode.Strict, 
-                    Expires = DateTimeOffset.UtcNow.AddDays(7)
+                    Secure = false,
+                    SameSite = SameSiteMode.Strict,
+                    Expires = DateTimeOffset.UtcNow.AddMinutes(15),
+                    Path = "/"
                 });
-            }
-            else
-            {
-                Token = $"Error: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}";
+
+                if (!string.IsNullOrEmpty(authResponse.refreshToken))
+                {
+                    Response.Cookies.Append("refresh_token", authResponse.refreshToken, new CookieOptions
+                    {
+                        HttpOnly = true,
+                        Secure = false,
+                        SameSite = SameSiteMode.Strict,
+                        Expires = DateTimeOffset.UtcNow.AddDays(100),
+                        Path = "/"
+                    });
+                }
             }
 
-            return Page();
+            return RedirectToPage("/UserPage");
         }
-    }
 
-
+        public async Task<IActionResult> OnPostRegisterAsync()
+        {
+            return RedirectToPage("/Register");
+        }
+    }   
 }

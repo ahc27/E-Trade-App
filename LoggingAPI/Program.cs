@@ -34,7 +34,7 @@ builder.Services.AddSwaggerGen();
 
 
 int maxRetries = 5;
-int retryDelaySeconds = 3;
+int retryDelaySeconds = 7;
 
 for (int attempt = 1; attempt <= maxRetries; attempt++)
 {

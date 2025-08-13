@@ -1,0 +1,50 @@
+﻿@page
+@model App.Pages.RegisterModel
+@{
+    <form method="post" asp-page-handler="Register">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    
+    <div class="form-group">
+        <label asp-for="newUser.firstName">First Name</label>
+        <input asp-for="newUser.firstName" class="form-control" style="max-width: 15%;" />
+        <span asp-validation-for="newUser.firstName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="newUser.lastName">Last Name</label>
+        <input asp-for="newUser.lastName" class="form-control" style="max-width: 15%;" />
+        <span asp-validation-for="newUser.lastName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="newUser.email">Email</label>
+        <input asp-for="newUser.email" class="form-control" style="max-width: 15%;" />
+        <span asp-validation-for="newUser.email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="newUser.password">Password</label>
+        <input asp-for="newUser.password" type="password" class="form-control" style="max-width: 15%;" />
+        <span asp-validation-for="newUser.password" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="newUser.phoneNumber">Phone Number</label>
+        <input asp-for="newUser.phoneNumber" class="form-control" style="max-width: 15%;" />
+        <span asp-validation-for="newUser.phoneNumber" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="newUser.address">Address</label>
+        <input asp-for="newUser.address" class="form-control" style="max-width: 15%;" />
+        <span asp-validation-for="newUser.address" class="text-danger"></span>
+    </div>
+
+    <div class="form-group form-check">
+        <input asp-for="newUser.isSeller" class="form-check-input" />
+        <label asp-for="newUser.isSeller" class="form-check-label"></label>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Register</button>
+</form>
+}

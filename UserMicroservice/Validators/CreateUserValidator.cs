@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using UserMicroservice.Services.Dtos;
+using classLib.UserDtos;
 
 namespace UserMicroservice.Validators
 {

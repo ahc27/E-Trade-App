@@ -25,42 +25,34 @@ public class AuthController : ControllerBase
                 ,new ArgumentException("Email and password is required."));
             return BadRequest("Email and password are required");
         }
-        var token = await _authService.Login(request);
 
+        var authResponse = await _authService.Login(request);
 
-        if (token == null)
+        if (authResponse == null)
         {
             bool failedLog = await _authService.LogAuth(null, false,"Login","User login failed", new ArgumentException("Email and password is required."));
             return Unauthorized("Invalid email or password");
         }
 
-        Response.Cookies.Append("access_token", token, new CookieOptions
-        {
-            HttpOnly = true,
-            Secure = false,
-            SameSite = SameSiteMode.Strict,
-            Expires = DateTimeOffset.UtcNow.AddMinutes(60)
-        });
-        return Ok(new {token});
+
+
+        return Ok(authResponse);
     }
 
     [AllowAnonymous]
     [HttpPost("refresh")]
-    public async Task<IActionResult> Refresh([FromBody] UserAuth request)
+    public async Task<IActionResult> Refresh([FromBody] string request)
     {
 
-        if (string.IsNullOrEmpty(request.email))
-            return BadRequest("Email is required.");
-
-        if (string.IsNullOrEmpty(request.password)) return BadRequest("Password is required.");
+        if (string.IsNullOrEmpty(request)) return null;
 
         try
         {
-            var newToken = await _authService.Refresh(request);
-            if(newToken == null)
-                return Unauthorized("Invalid email or password");
+            var authResponse = await _authService.Refresh(request);
+            if(authResponse == null)
+                return Unauthorized("Invalid token");
 
-            return Ok(new { accessToken = newToken });
+            return Ok(authResponse);
         }
         catch (Exception ex)
         {

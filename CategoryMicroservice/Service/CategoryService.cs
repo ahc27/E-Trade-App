@@ -4,6 +4,7 @@ using CategoryMicroservice.Data.Repositories;
 using CategoryMicroservice.Infrastructures.Messaging;
 using CategoryMicroservice.Service.Dtos;
 using classLib.LogDtos;
+using classLib;
 
 namespace CategoryMicroservice.Service
 {
@@ -21,17 +22,17 @@ namespace CategoryMicroservice.Service
                 _rabbitMqProducer = rabbitMqProducer;
             }
 
-            public async Task<IEnumerable<CreateCategoryDto>> GetAllAsync()
+            public async Task<IEnumerable<GetCategoryDto>> GetAllAsync()
             {
                 var categorys = await _categoryRepository.GetAll();
-                return _mapper.Map<IEnumerable<CreateCategoryDto>>(categorys);
+                return _mapper.Map<IEnumerable<GetCategoryDto>>(categorys);
             }
 
 
-            public async Task<CreateCategoryDto> GetByIdAsync(int id)
+            public async Task<GetCategoryDto> GetByIdAsync(int id)
             {
 
-                return _mapper.Map<CreateCategoryDto>(await _categoryRepository.GetById(id));
+                return _mapper.Map<GetCategoryDto>(await _categoryRepository.GetById(id));
             }
 
 
