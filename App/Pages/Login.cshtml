@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "/"
 @model App.Pages.LoginModel
 @{
     ViewData["Title"] = "Login";
@@ -24,13 +24,16 @@
     
     <button type="submit" class="btn btn-primary mt-2">Login</button>
 </form>
-
+<br>
+<br>
 <div>
-    Have you an account? If you not
+
 <form method="post" asp-page-handler="Register">
-    <button type="submit" class="btn btn-link mt-2">register here</button>
+        <span>Have you an account? If you not </span>
+    <button type="submit" class="btn btn-link ">register here</button>
 </form>
 </div>
+
 @* @if (!string.IsNullOrEmpty(Model.Token))
 {
     <div class="alert alert-success mt-3">

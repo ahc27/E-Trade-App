@@ -1,10 +1,11 @@
 using classLib;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.IdentityModel.Tokens;
 using System.Dynamic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Text.Json;
 
@@ -16,7 +17,7 @@ namespace App.Pages
 
         public List<GetUserDto> Users { get; set; } = new();
         public GetUserDto UserById { get; set; }
-        public AuthResponse Tokens { get; set; }  = new();
+        public AuthResponse Tokens { get; set; } = new();
         public List<GetCategoryDto> Categories { get; set; }
         public GetCategoryDto Category { get; set; }
 
@@ -28,8 +29,12 @@ namespace App.Pages
         public override async Task OnPageHandlerExecutionAsync(PageHandlerExecutingContext context, PageHandlerExecutionDelegate next)
         {
 
-             Request.Cookies.TryGetValue("access_token", out var accessToken);
-             Request.Cookies.TryGetValue("refresh_token", out var refreshToken);
+            Request.Cookies.TryGetValue("access_token", out var accessToken);
+            Request.Cookies.TryGetValue("refresh_token", out var refreshToken);
+            
+            Tokens.accessToken = accessToken;
+            Tokens.refreshToken =refreshToken;
+
 
             if (string.IsNullOrEmpty(refreshToken))
             {
@@ -37,26 +42,17 @@ namespace App.Pages
                 return;
             }
 
-            var json = JsonSerializer.Serialize(refreshToken);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync("refresh", content);
-            var responseJson = await response.Content.ReadAsStringAsync();
-
-            var responseContent = JsonSerializer.Deserialize<AuthResponse>(responseJson);
-
-            if (!response.IsSuccessStatusCode)
+            if(!isTokenValid(accessToken))
             {
-                context.Result = RedirectToPage("/Login");
-                return;
+                var Refreshed = await RefreshTokens(Tokens.refreshToken);
+                if (!Refreshed)
+                {
+                    RedirectToPage("/Login");
+                    return;
+                }
             }
 
-            if (responseContent==null)
-            {
-               context.Result = RedirectToPage("/Login");
-                return;
-            }
-
-            Response.Cookies.Append("access_token", responseContent.accessToken, new CookieOptions
+            Response.Cookies.Append("access_token", Tokens.accessToken, new CookieOptions
             {
                 HttpOnly = true,
                 Secure = false,
@@ -64,7 +60,7 @@ namespace App.Pages
                 Expires = DateTimeOffset.UtcNow.AddMinutes(15),
                 Path = "/"
             });
-            Response.Cookies.Append("refresh_token", responseContent.refreshToken, new CookieOptions
+            Response.Cookies.Append("refresh_token", Tokens.refreshToken, new CookieOptions
             {
                 HttpOnly = true,
                 Secure = false,
@@ -73,23 +69,24 @@ namespace App.Pages
                 Path = "/"
             });
 
-            Tokens.accessToken=responseContent.accessToken;
-            Tokens.refreshToken=responseContent.refreshToken;
             await next.Invoke();
         }
 
         public async Task OnGetAsync()
         {
-           var a = await OnGetAllCategoriesAsync();
+           await OnGetAllCategoriesAsync();
         }
 
         public async Task<JsonResult> OnGetAllUsersAsync()
         {
 
             var request = new HttpRequestMessage(HttpMethod.Get, "Users");
+
+            await RefreshTokens(Tokens.refreshToken);
+
             request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Tokens.accessToken);
             var response = await _httpClient.SendAsync(request);
- 
+
 
             if (response.IsSuccessStatusCode)
             {
@@ -105,25 +102,35 @@ namespace App.Pages
         public async Task<JsonResult> OnGetUserByIdAsync(int id)
         {
 
-             var request = new HttpRequestMessage(HttpMethod.Get, $"UserbyId/{id}");
-             request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Tokens.accessToken);
+            var request = new HttpRequestMessage(HttpMethod.Get, $"UserbyId/{id}");
 
-             var response = await _httpClient.SendAsync(request);
+            if (!isTokenValid(Tokens.accessToken))
+            {
+                await RefreshTokens(Tokens.refreshToken);
+            }
+            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Tokens.accessToken);
 
-             if (response.IsSuccessStatusCode)
-             {
+            var response = await _httpClient.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
                 var user = await response.Content.ReadFromJsonAsync<GetUserDto>();
                 return new JsonResult(user);
-             }
-             else
-             {
-                    return new JsonResult(new { error = $"API call failed: {response.StatusCode}" }) { StatusCode = (int)response.StatusCode };
-             }
+            }
+            else
+            {
+                return new JsonResult(new { error = $"API call failed: {response.StatusCode}" }) { StatusCode = (int)response.StatusCode };
+            }
         }
 
         public async Task<JsonResult> OnGetAllCategoriesAsync()
         {
+            if (!isTokenValid(Tokens.accessToken))
+            {
+                await RefreshTokens(Tokens.refreshToken);
+            }
             var request = new HttpRequestMessage(HttpMethod.Get, "AllCategories");
+
             request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Tokens.accessToken);
 
             var response = await _httpClient.SendAsync(request);
@@ -131,8 +138,8 @@ namespace App.Pages
             if (response.IsSuccessStatusCode)
             {
                 Categories = await response.Content.ReadFromJsonAsync<List<GetCategoryDto>>();
-                Console.WriteLine(Categories);
-                return new JsonResult(Categories);
+
+                return new JsonResult(Categories.OrderBy(category => category.Name).ToList());
             }
             else
             {
@@ -144,6 +151,10 @@ namespace App.Pages
         {
             try
             {
+                if (!isTokenValid(Tokens.accessToken))
+                {
+                    await RefreshTokens(Tokens.refreshToken);
+                }
                 var request = new HttpRequestMessage(HttpMethod.Get, $"CategorybyId/{id}");
                 request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Tokens.accessToken);
 
@@ -165,6 +176,13 @@ namespace App.Pages
             }
         }
 
+        public async Task<IActionResult> OnGetSelectedCategoryAsync()
+        {
+            if (Categories == null) await OnGetAllCategoriesAsync();
+
+            return new JsonResult(Categories);
+        }
+
         public async Task<IActionResult> OnPostLogoutAsync()
         {
 
@@ -174,7 +192,33 @@ namespace App.Pages
             return RedirectToPage("/Login");
         }
 
+        private bool isTokenValid(string token)
+        {
+            var jwt = new JwtSecurityToken(token);
+            var exp = jwt.Payload.Exp;
+
+            if (exp == null) return true; 
+            var expiry = DateTimeOffset.FromUnixTimeSeconds((long)exp);
+            return expiry <= DateTimeOffset.UtcNow;
+        }
+
+        private async Task<bool> RefreshTokens(string token)
+        {
+            var json = JsonSerializer.Serialize(token);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var refreshResponse = await _httpClient.PostAsync("refresh", content);
+            var responseJson = await refreshResponse.Content.ReadAsStringAsync();
+            var responseContent = JsonSerializer.Deserialize<AuthResponse>(responseJson);
+
+            if (responseContent == null) return false;
+
+            Tokens.accessToken = responseContent.accessToken;
+            Tokens.refreshToken = responseContent.refreshToken;
+
+            return true;
+        }
 
 
     }
 }
+

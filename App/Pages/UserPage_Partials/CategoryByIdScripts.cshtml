@@ -24,9 +24,10 @@
             }
 
                 let html = `
-                    <div class="card mb-3">
-                        <div class="card-header">
-                            <h5 class="mb-0">CategoryById</h5>
+                    <div class="card mb-3" id="userTableCard">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">CategoryById</h5>
+                        <button type="button" class="btn-close" aria-label="Close" onclick="removeUserTable()"></button>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -56,4 +57,11 @@
                 document.getElementById("categoryByIdContainer").innerHTML = `<div class="alert alert-danger">Error: ${err}</div>`;
             });
      });
+
+    function removeUserTable() {
+    const card = document.getElementById("userTableCard");
+    if (card) {
+        card.remove();
+    }
+}
 </script>

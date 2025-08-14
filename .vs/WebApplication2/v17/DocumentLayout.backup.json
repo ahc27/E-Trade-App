@@ -7,36 +7,44 @@
       "RelativeMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|solutionrelative:app\\pages\\userpage.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\app\\pages\\userpage_partials\\categoryscripts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|solutionrelative:app\\pages\\userpage_partials\\categoryscripts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\app\\pages\\userpage_partials\\categorycombobox.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|solutionrelative:app\\pages\\userpage_partials\\categorycombobox.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\app\\pages\\userpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|solutionrelative:app\\pages\\userpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6398A249-7381-A3BC-C984-0137E677E1CA}|LoggingAPI\\LoggingAPI.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\loggingapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6398A249-7381-A3BC-C984-0137E677E1CA}|LoggingAPI\\LoggingAPI.csproj|solutionrelative:loggingapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{58F3A4D6-30A1-4628-A79F-2E8C4F4CB348}|AuthAPI\\AuthAPI.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\authapi\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{58F3A4D6-30A1-4628-A79F-2E8C4F4CB348}|AuthAPI\\AuthAPI.csproj|solutionrelative:authapi\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\apigateway\\presentation\\controllers\\gatewaycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|solutionrelative:apigateway\\presentation\\controllers\\gatewaycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\app\\pages\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|solutionrelative:app\\pages\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\apigateway\\service\\gatewayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|solutionrelative:apigateway\\service\\gatewayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\apigateway\\service\\igatewayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|solutionrelative:apigateway\\service\\igatewayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\apigateway\\presentation\\controllers\\gatewaycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|solutionrelative:apigateway\\presentation\\controllers\\gatewaycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58F3A4D6-30A1-4628-A79F-2E8C4F4CB348}|AuthAPI\\AuthAPI.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\authapi\\presentation\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{58F3A4D6-30A1-4628-A79F-2E8C4F4CB348}|AuthAPI\\AuthAPI.csproj|solutionrelative:authapi\\presentation\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\app\\pages\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|solutionrelative:app\\pages\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58F3A4D6-30A1-4628-A79F-2E8C4F4CB348}|AuthAPI\\AuthAPI.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\authapi\\service\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{58F3A4D6-30A1-4628-A79F-2E8C4F4CB348}|AuthAPI\\AuthAPI.csproj|solutionrelative:authapi\\service\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\app\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|solutionrelative:app\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{58F3A4D6-30A1-4628-A79F-2E8C4F4CB348}|AuthAPI\\AuthAPI.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\authapi\\service\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{58F3A4D6-30A1-4628-A79F-2E8C4F4CB348}|AuthAPI\\AuthAPI.csproj|solutionrelative:authapi\\service\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\app\\app.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|solutionrelative:app\\app.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,83 +54,135 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\LoggingAPI\\Program.cs",
-              "RelativeDocumentMoniker": "LoggingAPI\\Program.cs",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\LoggingAPI\\Program.cs",
-              "RelativeToolTip": "LoggingAPI\\Program.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAADIAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T06:33:13.465Z",
+              "Title": "CategoryCombobox.cshtml",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage_Partials\\CategoryCombobox.cshtml",
+              "RelativeDocumentMoniker": "App\\Pages\\UserPage_Partials\\CategoryCombobox.cshtml",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage_Partials\\CategoryCombobox.cshtml",
+              "RelativeToolTip": "App\\Pages\\UserPage_Partials\\CategoryCombobox.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-14T12:20:20.796Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IGatewayService.cs",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Service\\IGatewayService.cs",
-              "RelativeDocumentMoniker": "APIGateway\\Service\\IGatewayService.cs",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Service\\IGatewayService.cs",
-              "RelativeToolTip": "APIGateway\\Service\\IGatewayService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T05:58:31.772Z",
+              "DocumentIndex": 1,
+              "Title": "CategoryScripts.cshtml",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage_Partials\\CategoryScripts.cshtml",
+              "RelativeDocumentMoniker": "App\\Pages\\UserPage_Partials\\CategoryScripts.cshtml",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage_Partials\\CategoryScripts.cshtml",
+              "RelativeToolTip": "App\\Pages\\UserPage_Partials\\CategoryScripts.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-14T12:00:58.898Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\AuthAPI\\Service\\IAuthService.cs",
-              "RelativeDocumentMoniker": "AuthAPI\\Service\\IAuthService.cs",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\AuthAPI\\Service\\IAuthService.cs",
-              "RelativeToolTip": "AuthAPI\\Service\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T13:46:27.107Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\AuthAPI\\Service\\AuthService.cs",
-              "RelativeDocumentMoniker": "AuthAPI\\Service\\AuthService.cs",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\AuthAPI\\Service\\AuthService.cs",
-              "RelativeToolTip": "AuthAPI\\Service\\AuthService.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAowCAAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T13:44:33.856Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\AuthAPI\\Presentation\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "AuthAPI\\Presentation\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\AuthAPI\\Presentation\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "AuthAPI\\Presentation\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwB0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T13:44:28.098Z",
+              "Title": "UserPage.cshtml",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage.cshtml",
+              "RelativeDocumentMoniker": "App\\Pages\\UserPage.cshtml",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage.cshtml",
+              "RelativeToolTip": "App\\Pages\\UserPage.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAcAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-14T11:39:56.448Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\Register.cshtml",
+              "RelativeDocumentMoniker": "App\\Pages\\Register.cshtml",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\Register.cshtml",
+              "RelativeToolTip": "App\\Pages\\Register.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-14T11:39:25.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\Error.cshtml",
+              "RelativeDocumentMoniker": "App\\Pages\\Error.cshtml",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\Error.cshtml",
+              "RelativeToolTip": "App\\Pages\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-14T11:39:19.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "App.csproj",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\App.csproj",
+              "RelativeDocumentMoniker": "App\\App.csproj",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\App.csproj",
+              "RelativeToolTip": "App\\App.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-14T08:40:41.987Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserPage.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage.cshtml.cs",
+              "RelativeDocumentMoniker": "App\\Pages\\UserPage.cshtml.cs",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage.cshtml.cs",
+              "RelativeToolTip": "App\\Pages\\UserPage.cshtml.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAUwNYAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T07:39:18.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "App\\Pages\\Login.cshtml.cs",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\Login.cshtml.cs",
+              "RelativeToolTip": "App\\Pages\\Login.cshtml.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwCQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T07:38:32.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "JWTService.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\AuthAPI\\Service\\JWTService.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Service\\JWTService.cs",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\AuthAPI\\Service\\JWTService.cs",
+              "RelativeToolTip": "AuthAPI\\Service\\JWTService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwBgAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T07:36:28.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "GatewayController.cs",
               "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Presentation\\Controllers\\GatewayController.cs",
               "RelativeDocumentMoniker": "APIGateway\\Presentation\\Controllers\\GatewayController.cs",
               "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Presentation\\Controllers\\GatewayController.cs",
               "RelativeToolTip": "APIGateway\\Presentation\\Controllers\\GatewayController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAowC4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAowEYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T13:44:23.859Z",
+              "WhenOpened": "2025-08-13T19:54:05.373Z",
               "EditorCaption": ""
             },
             {
@@ -133,35 +193,9 @@
               "RelativeDocumentMoniker": "APIGateway\\Service\\GatewayService.cs",
               "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Service\\GatewayService.cs",
               "RelativeToolTip": "APIGateway\\Service\\GatewayService.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAowCwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAAAwwEoAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T13:44:23.135Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserPage.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage.cshtml.cs",
-              "RelativeDocumentMoniker": "App\\Pages\\UserPage.cshtml.cs",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage.cshtml.cs",
-              "RelativeToolTip": "App\\Pages\\UserPage.cshtml.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAmwC8AAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T11:53:26.43Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserPage.cshtml",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage.cshtml",
-              "RelativeDocumentMoniker": "App\\Pages\\UserPage.cshtml",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage.cshtml",
-              "RelativeToolTip": "App\\Pages\\UserPage.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-12T10:10:32.774Z",
+              "WhenOpened": "2025-08-13T19:54:02.759Z",
               "EditorCaption": ""
             }
           ]

@@ -32,6 +32,7 @@ namespace App.Pages
             {
                 var log = $"Error: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}";
                 Console.WriteLine(log);
+                return Page();
             }
 
             return RedirectToPage("/Login");

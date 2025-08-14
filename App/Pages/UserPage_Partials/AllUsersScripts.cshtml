@@ -9,26 +9,27 @@
                 }
 
                 let html = `
-                    <div class="card mb-3">
-                        <div class="card-header">
-                            <h5 class="mb-0">Users (${data.length})</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Email</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Phone Number</th>
-                                            <th>Address</th>
-                                            <th>Seller</th>
-                                            <th>Role</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                `;
+                <div class="card mt-3" id="userTableCard">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>User Details</span>
+                        <button type="button" class="btn-close" aria-label="Close" onclick="removeUserTable()"></button>
+                    </div>
+                     <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Email</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Phone</th>
+                                        <th>Address</th>
+                                        <th>Seller</th>
+                                        <th>Role</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                        `;
 
                 data.forEach(user => {
                     html += `
@@ -58,4 +59,11 @@
                 document.getElementById("usersContainer").innerHTML = `<div class="alert alert-danger">Error: ${err}</div>`;
             });
     });
+
+    function removeUserTable() {
+    const card = document.getElementById("userTableCard");
+    if (card) {
+        card.remove();
+    }
+}
 </script>

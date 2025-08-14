@@ -383,3 +383,8 @@ C:\Users\ali\source\repos\WebApplication2\App\obj\Debug\net8.0\refint\App.dll
 C:\Users\ali\source\repos\WebApplication2\App\obj\Debug\net8.0\App.pdb
 C:\Users\ali\source\repos\WebApplication2\App\obj\Debug\net8.0\App.genruntimeconfig.cache
 C:\Users\ali\source\repos\WebApplication2\App\obj\Debug\net8.0\ref\App.dll
+C:\Users\ali\source\repos\WebApplication2\App\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\ali\source\repos\WebApplication2\App\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\ali\source\repos\WebApplication2\App\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\ali\source\repos\WebApplication2\App\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ali\source\repos\WebApplication2\App\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

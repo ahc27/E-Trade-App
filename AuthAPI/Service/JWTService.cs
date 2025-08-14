@@ -32,7 +32,6 @@ namespace AuthAPI.Service
                 new Claim(ClaimTypes.Role, user.role),
             };
 
-
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
 
             var tokendescriptor = new SecurityTokenDescriptor

@@ -20,6 +20,27 @@ namespace App.Pages
             _httpClient = httpClientFactory.CreateClient("ApiGateway");
         }
 
+        public async Task OnGet()
+        {
+            try
+            {
+                string cookie1 = Request.Cookies["access_token"].ToString();
+                string cookie2 = Request.Cookies["refresh_token"].ToString();
+                if (cookie1 != null)
+                {
+                    Response.Cookies.Delete("access_token");
+                }
+
+                if (cookie2 != null)
+                {
+                    Response.Cookies.Delete("refresh_token");
+                }
+            }
+            catch(Exception e) { }
+
+
+        }
+
         public async Task<IActionResult> OnPostLoginAsync()
         {
             var json = JsonSerializer.Serialize(Login);

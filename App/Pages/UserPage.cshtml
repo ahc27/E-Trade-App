@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page 
 @model UserPageModel
 
 <button id="loadUsersBtn" class="btn btn-primary">Load All Users</button>
@@ -29,6 +29,10 @@
 
 <div id="categoryByIdContainer" class="mt-2"></div>
 
+<select class="form-select" id="categorySelect">
+    <option value="">Choose a category</option>
+</select>
+
 <form method="post" asp-page-handler="Logout">
     <button type="submit" class="btn btn-link">Log out</button>
 </form>
@@ -39,7 +43,7 @@
             data-category="@System.Text.Json.JsonSerializer.Serialize(category)">
         @category.Name
     </button>
-}
+} 
 
 @section Scripts {
     @await Html.PartialAsync("UserPage_Partials/AllUsersScripts")
@@ -47,4 +51,5 @@
     @await Html.PartialAsync("UserPage_Partials/AllCategoriesScripts")
     @await Html.PartialAsync("UserPage_Partials/CategoryByIdScripts")
     @await Html.PartialAsync("UserPage_Partials/CategoryScripts")
+    @await Html.PartialAsync("UserPage_Partials/CategoryCombobox")
 }
