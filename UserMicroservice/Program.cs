@@ -11,7 +11,6 @@ using UserMicroservice.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Database Configuration
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 

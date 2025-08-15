@@ -97,7 +97,7 @@ namespace CategoryMicroservice.Service
                     Message = message,
                     Timestamp = DateTime.UtcNow,
                     EntityId = entityId,
-                    ServiceName = "AuthAPI",
+                    ServiceName = "Category",
                     Level = success ? "Information" : "Error",
                     Exception = exception
                 };

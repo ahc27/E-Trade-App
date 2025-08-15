@@ -3,48 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\ali\\source\\repos\\WebApplication2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{36B8A4DC-4CD5-E151-40C1-6D7EE8786DA8}|Products\\Products.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\products\\presentation\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36B8A4DC-4CD5-E151-40C1-6D7EE8786DA8}|Products\\Products.csproj|solutionrelative:products\\presentation\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E42D9211-0DD4-F4F1-452D-EEB649E43CBB}|UserMicroservice\\UserMicroservice.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\usermicroservice\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E42D9211-0DD4-F4F1-452D-EEB649E43CBB}|UserMicroservice\\UserMicroservice.csproj|solutionrelative:usermicroservice\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36B8A4DC-4CD5-E151-40C1-6D7EE8786DA8}|Products\\Products.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\products\\data\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36B8A4DC-4CD5-E151-40C1-6D7EE8786DA8}|Products\\Products.csproj|solutionrelative:products\\data\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36B8A4DC-4CD5-E151-40C1-6D7EE8786DA8}|Products\\Products.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\products\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36B8A4DC-4CD5-E151-40C1-6D7EE8786DA8}|Products\\Products.csproj|solutionrelative:products\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\app\\pages\\userpage.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|solutionrelative:app\\pages\\userpage.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\app\\pages\\userpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|solutionrelative:app\\pages\\userpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\app\\pages\\userpage_partials\\categoryscripts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|solutionrelative:app\\pages\\userpage_partials\\categoryscripts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\app\\pages\\userpage_partials\\categorycombobox.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|solutionrelative:app\\pages\\userpage_partials\\categorycombobox.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\app\\pages\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|solutionrelative:app\\pages\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\apigateway\\service\\gatewayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|solutionrelative:apigateway\\service\\gatewayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\apigateway\\presentation\\controllers\\gatewaycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{386580AB-03D6-4D57-814D-7222E0769F74}|APIGateway\\APIGateway.csproj|solutionrelative:apigateway\\presentation\\controllers\\gatewaycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\app\\pages\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|solutionrelative:app\\pages\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\app\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|solutionrelative:app\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{58F3A4D6-30A1-4628-A79F-2E8C4F4CB348}|AuthAPI\\AuthAPI.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\authapi\\service\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{58F3A4D6-30A1-4628-A79F-2E8C4F4CB348}|AuthAPI\\AuthAPI.csproj|solutionrelative:authapi\\service\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|c:\\users\\ali\\source\\repos\\webapplication2\\app\\app.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{8F94F324-4A11-4FAE-9801-36E10856E1D5}|App\\App.csproj|solutionrelative:app\\app.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,137 +38,68 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CategoryCombobox.cshtml",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage_Partials\\CategoryCombobox.cshtml",
-              "RelativeDocumentMoniker": "App\\Pages\\UserPage_Partials\\CategoryCombobox.cshtml",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage_Partials\\CategoryCombobox.cshtml",
-              "RelativeToolTip": "App\\Pages\\UserPage_Partials\\CategoryCombobox.cshtml",
+              "DocumentIndex": 1,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\UserMicroservice\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "UserMicroservice\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\UserMicroservice\\Services\\UserService.cs",
+              "RelativeToolTip": "UserMicroservice\\Services\\UserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-14T12:20:20.796Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T07:53:09.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\Products\\Presentation\\ProductController.cs",
+              "RelativeDocumentMoniker": "Products\\Presentation\\ProductController.cs",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\Products\\Presentation\\ProductController.cs",
+              "RelativeToolTip": "Products\\Presentation\\ProductController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBAAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T07:47:09.52Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CategoryScripts.cshtml",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage_Partials\\CategoryScripts.cshtml",
-              "RelativeDocumentMoniker": "App\\Pages\\UserPage_Partials\\CategoryScripts.cshtml",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage_Partials\\CategoryScripts.cshtml",
-              "RelativeToolTip": "App\\Pages\\UserPage_Partials\\CategoryScripts.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-14T12:00:58.898Z"
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\Products\\Data\\Product.cs",
+              "RelativeDocumentMoniker": "Products\\Data\\Product.cs",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\Products\\Data\\Product.cs",
+              "RelativeToolTip": "Products\\Data\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T07:47:03.658Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserPage.cshtml",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage.cshtml",
-              "RelativeDocumentMoniker": "App\\Pages\\UserPage.cshtml",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage.cshtml",
-              "RelativeToolTip": "App\\Pages\\UserPage.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAAcAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-14T11:39:56.448Z",
+              "DocumentIndex": 3,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\Products\\Service\\ProductService.cs",
+              "RelativeDocumentMoniker": "Products\\Service\\ProductService.cs",
+              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\Products\\Service\\ProductService.cs",
+              "RelativeToolTip": "Products\\Service\\ProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T07:46:45.547Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\Register.cshtml",
-              "RelativeDocumentMoniker": "App\\Pages\\Register.cshtml",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\Register.cshtml",
-              "RelativeToolTip": "App\\Pages\\Register.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-14T11:39:25.339Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Error.cshtml",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\Error.cshtml",
-              "RelativeDocumentMoniker": "App\\Pages\\Error.cshtml",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\Error.cshtml",
-              "RelativeToolTip": "App\\Pages\\Error.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-14T11:39:19.669Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "App.csproj",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\App.csproj",
-              "RelativeDocumentMoniker": "App\\App.csproj",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\App.csproj",
-              "RelativeToolTip": "App\\App.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-14T08:40:41.987Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "UserPage.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage.cshtml.cs",
               "RelativeDocumentMoniker": "App\\Pages\\UserPage.cshtml.cs",
               "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\UserPage.cshtml.cs",
               "RelativeToolTip": "App\\Pages\\UserPage.cshtml.cs",
-              "ViewState": "AgIAAJ4AAAAAAAAAAAAqwLoAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAswAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T07:39:18.678Z",
+              "WhenOpened": "2025-08-15T07:16:09.084Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Login.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\Login.cshtml.cs",
-              "RelativeDocumentMoniker": "App\\Pages\\Login.cshtml.cs",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\App\\Pages\\Login.cshtml.cs",
-              "RelativeToolTip": "App\\Pages\\Login.cshtml.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwCQAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T07:38:32.61Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "JWTService.cs",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\AuthAPI\\Service\\JWTService.cs",
-              "RelativeDocumentMoniker": "AuthAPI\\Service\\JWTService.cs",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\AuthAPI\\Service\\JWTService.cs",
-              "RelativeToolTip": "AuthAPI\\Service\\JWTService.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwBgAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T07:36:28.235Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GatewayController.cs",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Presentation\\Controllers\\GatewayController.cs",
-              "RelativeDocumentMoniker": "APIGateway\\Presentation\\Controllers\\GatewayController.cs",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Presentation\\Controllers\\GatewayController.cs",
-              "RelativeToolTip": "APIGateway\\Presentation\\Controllers\\GatewayController.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAowEYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T19:54:05.373Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GatewayService.cs",
-              "DocumentMoniker": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Service\\GatewayService.cs",
-              "RelativeDocumentMoniker": "APIGateway\\Service\\GatewayService.cs",
-              "ToolTip": "C:\\Users\\ali\\source\\repos\\WebApplication2\\APIGateway\\Service\\GatewayService.cs",
-              "RelativeToolTip": "APIGateway\\Service\\GatewayService.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAwwEoAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T19:54:02.759Z"
             }
           ]
         }

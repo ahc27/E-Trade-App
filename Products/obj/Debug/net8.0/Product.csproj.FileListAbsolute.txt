@@ -1,0 +1,8 @@
+C:\Users\ali\source\repos\WebApplication2\Product\obj\Debug\net8.0\Product.csproj.AssemblyReference.cache
+C:\Users\ali\source\repos\WebApplication2\Product\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\ali\source\repos\WebApplication2\Product\obj\Debug\net8.0\Product.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ali\source\repos\WebApplication2\Product\obj\Debug\net8.0\Product.AssemblyInfoInputs.cache
+C:\Users\ali\source\repos\WebApplication2\Product\obj\Debug\net8.0\Product.AssemblyInfo.cs
+C:\Users\ali\source\repos\WebApplication2\Product\obj\Debug\net8.0\Product.csproj.CoreCompileInputs.cache
+C:\Users\ali\source\repos\WebApplication2\Product\obj\Debug\net8.0\Product.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ali\source\repos\WebApplication2\Product\obj\Debug\net8.0\Product.MvcApplicationPartsAssemblyInfo.cache

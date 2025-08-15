@@ -32,6 +32,23 @@ services:
         condition: service_healthy
     networks:
       - app-network
+       
+  product-api:
+    build:
+      context: .
+      dockerfile: Products/Dockerfile
+    container_name: product_api  
+    ports:
+      - "5003:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Username=postgres;Password=Bulut2021;Database=WebApplication2
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - app-network
 
   auth-api:
     build:
