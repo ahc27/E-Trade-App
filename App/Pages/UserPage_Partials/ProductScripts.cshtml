@@ -1,0 +1,16 @@
+﻿<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const productButtons = document.querySelectorAll('.product-btn');
+    
+    productButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const product = JSON.parse(this.dataset.product);
+            selectproduct(product.name);
+        });
+    });
+});
+
+function selectproduct( name) {
+    console.log('product chosen:', name);
+}
+</script>
